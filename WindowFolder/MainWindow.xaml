@@ -55,7 +55,7 @@
                     <Border Background="Transparent"
                             MouseLeftButtonUp="CloseBtn_MouseLeftButtonUp"  Width="40">
                         <Image x:Name="CloseBtn" Cursor="Hand" HorizontalAlignment="Center"
-                           Source="/ResourceFolder/ImageFolder/Group 1348.png"
+                           Source="/ResourceFolder/ImageFolder/Group 1350.png"
                            Width="25" Height="5" Margin="5,30,5,15" />
                     </Border>
 
