@@ -6,105 +6,259 @@
         xmlns:local="clr-namespace:RebrovKorsun.WindowFolder"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
+        Title="Авторизация" 
+        MinHeight="850" MinWidth="1300"
+        Height="850" Width="1300"       
         WindowStartupLocation="CenterScreen"
-        WindowStyle="None"
-        Background="{x:Null}"
-        AllowsTransparency="True"
         ResizeMode="CanResizeWithGrip"
-        Height="750" Width="1200"
-        MaxHeight="750" MaxWidth="1200"
-        MinHeight="750" MinWidth="1200">
-    <Border Style="{DynamicResource MainBorder}"
-            MouseDown="Border_MouseDown">
+        AllowsTransparency="True"
+        WindowStyle="None"
+        Background="{x:Null}">
+
+    <Border Background="White" CornerRadius="10" BorderThickness="0.4" BorderBrush="Black">
         <Grid>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="70"/>
+                <RowDefinition Height="100"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Border Style="{DynamicResource TopBorder}" Height="120"/>
-
-            <Image Margin="16,0,0,0"
-                   Height="100"
-                   Width="300"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Left"
-                   Source="/ResourceFolder/ImageFolder/image 2.png"/>
-
-            <StackPanel Orientation="Horizontal" Grid.Row="1">
-                <Image x:Name="RollupBtn"               
-                               VerticalAlignment="Top"
-                               HorizontalAlignment="Right"
-                               Margin="1100 0 15 0"
-                               Height="35"
-                               MouseLeftButtonDown="RollupBtn_MouseLeftButtonDown"
-                               Source="/ResourceFolder/ImageFolder/Group 1349.png"/>
-
-                <Image x:Name="CloseBtn" 
-                               VerticalAlignment="Top"
-                               HorizontalAlignment="Right"
-                               Margin="0 0 0 0"
-                               Height="35"
-                               MouseLeftButtonDown="CloseBtn_MouseLeftButtonDown"
-                               Source="/ResourceFolder/ImageFolder/Group 1350.png"/>
-            </StackPanel>
-
-            <Grid Grid.Row="1">
+            <Grid>
                 <Grid.ColumnDefinitions>
-
-                    <ColumnDefinition Width="225"/>
-
+                    <ColumnDefinition Width="400"/>
                     <ColumnDefinition/>
-
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="275"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
 
-                <Grid>
-                    <!--<StackPanel Grid.Row="1" Background="{DynamicResource MainBackGround}">
+                <Image  Source="/ResourceFolder/ImageFolder/image 2.png" Stretch="Uniform" Margin="10,15"/>
 
-                        <Button x:Name="ListUserBtn" Width="210"
-                                HorizontalAlignment="Left"
-                                Click="ListUserBtn_Click">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Список пользователей" Style="{DynamicResource ButtonTextBlock}"/>
+                <StackPanel Grid.Column="1"  Orientation="Vertical" Margin="0,15,125,0" >
 
-                                --><!--<Image Source=""/>--><!--
+                    <Border Background="#4845D2" Width="75" Height="10" CornerRadius="7.5" Margin="0,30,0,-5"/>
 
-                            </StackPanel>
-                        </Button>
+                    <Label Content="{Binding ElementName=MainFrame, Path=Content.Title, FallbackValue='Выберите список'}" Style="{DynamicResource MainLabel}"/>
+                </StackPanel>
 
-                        <Button x:Name="AddUserBtn" Width="210"
-                                HorizontalAlignment="Left"
-                                Click="AddUserBtn_Click">
-                            <StackPanel Orientation="Horizontal">
+                <Border x:Name="TopperBorder" Background="Red" Height="50" Opacity="0"
+                        VerticalAlignment="Top" Grid.ColumnSpan="3"
+                        MouseLeftButtonDown="Border_MouseLeftButtonDown"/>
 
-                                --><!--<Image Source=""/>--><!--
-                                <TextBlock Text="Добавить пользователя" Style="{DynamicResource ButtonTextBlock}"
-                                           HorizontalAlignment="Left"/>
+                <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Height="50" Width="90" >
 
-                            </StackPanel>
-                        </Button>
 
-                    </StackPanel>-->
+                    <Border Background="Transparent"
+                            MouseLeftButtonUp="CloseBtn_MouseLeftButtonUp"  Width="40">
+                        <Image x:Name="CloseBtn" Cursor="Hand" HorizontalAlignment="Center"
+                           Source="/ResourceFolder/ImageFolder/Group 1348.png"
+                           Width="25" Height="5" Margin="5,30,5,15" />
+                    </Border>
 
-                    
+                    <Image x:Name="ExitBtn" Cursor="Hand" Stretch="Uniform"
+                               Source="/ResourceFolder/ImageFolder/выход.jpg"
+                               Margin="15"
+                               MouseLeftButtonUp="ExitBtn_MouseLeftButtonUp" />
+                </StackPanel>
 
-                </Grid>
 
-                <Grid Grid.Column="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="70"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Label Style="{DynamicResource HeadingLabel}"
-                           Content="{Binding ElementName=MainFrame,
-                        Path=Content.Title}"/>
-                    <Frame Grid.Row="1" Name="MainFrame" Margin="10"
-                           NavigationUIVisibility="Hidden"/>
-
-                </Grid>
 
             </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel x:Name="ButtonPanelSP" Orientation="Vertical" Grid.Column="0">
+
+                    <Button x:Name="HomeBtn" Style="{StaticResource MenuButton}" Click="MenuButton_Click">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Border x:Name="Border" Background="{TemplateBinding Background}" CornerRadius="30">
+                                        <Image Source="/ResourceFolder/ImageFolder/MenuIMG/HomeIcon.png" x:Name="IconImage" Style="{StaticResource ImageForIcon}"/>
+                                    </Border>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter  Property="Background"  Value="#908EE5"/>
+                                        <Setter TargetName="IconImage" Property="Source" Value="/ResourceFolder/ImageFolder/MenuIMG/White/HomeIconWHITE.png"/>
+                                    </Trigger>
+                                    <Trigger Property="Tag" Value="Using">
+                                        <Setter  Property="Background" Value="{StaticResource SecondColor}"/>
+                                        <Setter TargetName="IconImage" Property="Source" Value="/ResourceFolder/ImageFolder/MenuIMG/White/HomeIconWHITE.png"/>
+                                    </Trigger>
+                                    <Trigger Property="IsEnabled" Value="false">
+                                        <Setter Property="Opacity" Value="0.56"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <Button x:Name="ShopBtn" Style="{StaticResource MenuButton}" Click="MenuButton_Click" >
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Border x:Name="Border" Background="{TemplateBinding Background}" CornerRadius="30">
+                                        <Image Source="/ResourceFolder/ImageFolder/MenuIMG/ShopIcon.png" x:Name="IconImage" Style="{StaticResource ImageForIcon}"/>
+                                    </Border>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background"  Value="#908EE5"/>
+                                        <Setter TargetName="IconImage" Property="Source" Value="/ResourceFolder/ImageFolder/MenuIMG/White/ShopIconWHITE.png"/>
+                                    </Trigger>
+                                    <Trigger Property="Tag" Value="Using" >
+                                        <Setter Property="Background" Value="{StaticResource SecondColor}"/>
+                                        <Setter TargetName="IconImage" Property="Source" Value="/ResourceFolder/ImageFolder/MenuIMG/White/ShopIconWHITE.png"/>
+                                    </Trigger>
+                                    <Trigger Property="IsEnabled" Value="false">
+                                        <Setter Property="Opacity" Value="0.56"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <Button x:Name="EmployeeBtn" Style="{StaticResource MenuButton}" Click="MenuButton_Click" >
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Border x:Name="Border" Background="{TemplateBinding Background}" CornerRadius="30">
+                                        <Image Source="/Korsun_PP23;component/ResourceFolder/ImageFolder/MenuIMG/EmployeeIcon.png" x:Name="IconImage" Style="{StaticResource ImageForIcon}"/>
+                                    </Border>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background"  Value="#908EE5"/>
+                                        <Setter TargetName="IconImage" Property="Source" Value="/Korsun_PP23;component/ResourceFolder/ImageFolder/MenuIMG/White/EmployeeIconWHITE.png"/>
+                                    </Trigger>
+                                    <Trigger Property="Tag" Value="Using" >
+                                        <Setter   Property="Background" Value="{StaticResource SecondColor}"/>
+                                        <Setter TargetName="IconImage" Property="Source" Value="/Korsun_PP23;component/ResourceFolder/ImageFolder/MenuIMG/White/EmployeeIconWHITE.png"/>
+                                    </Trigger>
+                                    <Trigger Property="IsEnabled" Value="false">
+                                        <Setter Property="Opacity" Value="0.56"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <Button x:Name="VehicleBtn" Style="{StaticResource MenuButton}"
+                            Click="MenuButton_Click" >
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Border x:Name="Border" Background="{TemplateBinding Background}" CornerRadius="30">
+                                        <Image Source="/ResourceFolder/ImageFolder/MenuIMG/TruckIcon.png" x:Name="IconImage" Style="{StaticResource ImageForIcon}"/>
+                                    </Border>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background"  Value="#908EE5"/>
+                                        <Setter TargetName="IconImage" Property="Source" Value="/ResourceFolder/ImageFolder/MenuIMG/White/TruckIconWHITE.png"/>
+                                    </Trigger>
+                                    <Trigger Property="Tag" Value="Using" >
+                                        <Setter Property="Background" Value="{StaticResource SecondColor}"/>
+                                        <Setter TargetName="IconImage" Property="Source" Value="/ResourceFolder/ImageFolder/MenuIMG/White/TruckIconWHITE.png"/>
+                                    </Trigger>
+                                    <Trigger Property="IsEnabled" Value="false">
+                                        <Setter Property="Opacity" Value="0.56"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <Button x:Name="StorageBtn" Style="{StaticResource MenuButton}" Click="MenuButton_Click" >
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Border x:Name="Border" Background="{TemplateBinding Background}" CornerRadius="30">
+                                        <Image Source="/ResourceFolder/ImageFolder/MenuIMG/StorageIcon.png" x:Name="IconImage" Style="{StaticResource ImageForIcon}"/>
+                                    </Border>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background"  Value="#908EE5"/>
+                                        <Setter TargetName="IconImage" Property="Source" Value="/ResourceFolder/ImageFolder/MenuIMG/White/StorageIconWHITE.png"/>
+                                    </Trigger>
+                                    <Trigger Property="Tag" Value="Using" >
+                                        <Setter  Property="Background" Value="{StaticResource SecondColor}"/>
+                                        <Setter TargetName="IconImage" Property="Source" Value="/ResourceFolder/ImageFolder/MenuIMG/White/StorageIconWHITE.png"/>
+                                    </Trigger>
+                                    <Trigger Property="IsEnabled" Value="false">
+                                        <Setter Property="Opacity" Value="0.56"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+
+                    <Button x:Name="ContractBtn" Style="{StaticResource MenuButton}" Click="MenuButton_Click" >
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Border x:Name="Border" Background="{TemplateBinding Background}" CornerRadius="30">
+                                        <Image Source="/Korsun_PP23;component/ResourceFolder/ImageFolder/MenuIMG/ContractIcon.png" Margin="20.5,17.5,14.5,17.5"
+                                               x:Name="IconImage" Style="{StaticResource ImageForIcon}"/>
+                                    </Border>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background"  Value="#908EE5"/>
+                                        <Setter TargetName="IconImage" Property="Source" Value="/Korsun_PP23;component/ResourceFolder/ImageFolder/MenuIMG/White/ContracitIconWHITE.png"/>
+                                    </Trigger>
+                                    <Trigger Property="Tag" Value="Using" >
+                                        <Setter   Property="Background" Value="{StaticResource SecondColor}"/>
+                                        <Setter TargetName="IconImage" Property="Source" Value="/Korsun_PP23;component/ResourceFolder/ImageFolder/MenuIMG/White/ContracitIconWHITE.png"/>
+                                    </Trigger>
+                                    <Trigger Property="IsEnabled" Value="false">
+                                        <Setter Property="Opacity" Value="0.56"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+
+                </StackPanel>
+
+
+                <Image VerticalAlignment="Bottom" Margin="10,15" Height="45"  MouseLeftButtonUp="QuitIM_LeftButtonUp">
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Setter Property="Source" Value="/ResourceFolder/ImageFolder/MenuIMG/QuitIcon.png"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Source" Value="/ResourceFolder/ImageFolder/MenuIMG/QuitIconRED.png"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+
+                <Image Source="/Korsun_PP23;component/ResourceFolder/ImageFolder/BakcgroundImage.png" Stretch="Uniform" Grid.Column="1" />
+
+
+                <Frame Grid.Column="1" Navigated="MainFrame_Navigated"
+                       Name="MainFrame" 
+                       SandboxExternalContent="True"
+                       NavigationUIVisibility="Hidden"
+                       PreviewMouseUp="MainFrame_PreviewMouseUp"/>
+            </Grid>
+
+
+
         </Grid>
     </Border>
 </Window>
