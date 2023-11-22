@@ -81,17 +81,10 @@ namespace RebrovKorsun.WindowFolder
                     {
                         switch (user.IdRole)
                         {
-                            case 1:
-                                MBClass.InfoMB("Администратор");
+                            case 2:
                                 new MainWindow().ShowDialog();
                                 this.Close();
                                 break;
-
-                            //case 2:
-                            //    MBClass.InfoMB("Сотрудник");
-                            //    new .ShowDialog();
-                            //    this.Close();
-                            //    break;
                         }
                     }
                 }

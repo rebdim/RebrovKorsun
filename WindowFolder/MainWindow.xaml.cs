@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using RebrovKorsun.ClassFolder;
 
 namespace RebrovKorsun.WindowFolder
 {
@@ -31,7 +32,87 @@ namespace RebrovKorsun.WindowFolder
 
         private void CloseBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            MBClass.ExitMB();
+        }
 
+        private void TopperBorder_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Border_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void ExitBtn_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void MainFrame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+
+        }
+
+        private void MainFrame_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void HomeBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ShopBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EmployeeBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void VehicleBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void StorageBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ContractBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RollupBtn_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MainFrame.Navigate(new PageFolder.DoctorFolder.DoctorListPage());
+        }
+
+        private void TopperBorder_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void ExitBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MBClass.ExitMB();
+        }
+
+        private void Image_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
+        {
+            
         }
     }
 }

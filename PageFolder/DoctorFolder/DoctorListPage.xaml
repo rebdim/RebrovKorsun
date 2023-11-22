@@ -1,0 +1,168 @@
+﻿<Page x:Class="RebrovKorsun.PageFolder.DoctorFolder.DoctorListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:RebrovKorsun.PageFolder.DoctorFolder"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="800"
+      Title="Список докторов"
+      Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="SearchTb"
+                 Width="250" Height="50"
+                 VerticalContentAlignment="Center"
+                 HorizontalAlignment="Left"
+                 materialDesign:HintAssist.Hint="Поиск"
+                 Margin="0"
+                 TextChanged="SearchTb_TextChanged"/>
+
+        <ListView x:Name="ListDoctorLb"
+                  Grid.Row="1"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Name="EditDoctor" Header="Редактировать"
+                              Click="EditDoctor_Click"/>
+                    <MenuItem Name="DeleteDoctor" Header="Удалить"
+                              Click="DeleteDoctor_Click"/>
+
+
+                </ContextMenu>
+            </ListView.ContextMenu>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Фамилия"
+                                   FontWeight="Bold"
+                                   Foreground="White"
+                                   Style="{DynamicResource listTextBlock}"/>
+
+                        <TextBlock Text="{Binding LastName}"
+                                   Grid.Column="1"
+                                   Style="{DynamicResource listTextBlock}"/>
+
+                        <TextBlock Text="Имя"
+                                   FontWeight="Bold"
+                                   Foreground="White"
+                                   Grid.Row="2"
+                                   Style="{DynamicResource listTextBlock}"/>
+
+                        <TextBlock Text="{Binding FirstName}"
+                                   Grid.Column="2"
+                                   Grid.Row="1"
+                                   Style="{DynamicResource listTextBlock}"/>
+
+                        <TextBlock Text="Отчество"
+                                   FontWeight="Bold"
+                                   Foreground="White"
+                                   Grid.Row="3"
+                                   Style="{DynamicResource listTextBlock}"/>
+
+                        <TextBlock Text="{Binding MiddleName}"
+                                   Grid.Column="1"
+                                   Grid.Row="3"
+                                   Style="{DynamicResource listTextBlock}"/>
+
+                        <TextBlock Text="Дата рождения"
+                                   FontWeight="Bold"
+                                   Foreground="White"
+                                   Grid.Row="4"
+                                   Style="{DynamicResource listTextBlock}"/>
+
+                        <TextBlock Text="{Binding DateOfBirt}"
+                                   Grid.Column="1"
+                                   Grid.Row="4"
+                                   Style="{DynamicResource listTextBlock}"/>
+
+                        <TextBlock Text="Должность"
+                                   FontWeight="Bold"
+                                   Foreground="White"
+                                   Grid.Row="5"
+                                   Style="{DynamicResource listTextBlock}"/>
+
+                        <TextBlock Text="{Binding IdJobTitle.JobTitleName}"
+                                   Grid.Column="1"
+                                   Grid.Row="5"
+                                   Style="{DynamicResource listTextBlock}"/>
+
+                        <TextBlock Text="Телефон"
+                                   FontWeight="Bold"
+                                   Foreground="White"
+                                   Grid.Row="6"
+                                   Style="{DynamicResource listTextBlock}"/>
+
+                        <TextBlock Text="{Binding PhoneNumber}"
+                                   Grid.Column="1"
+                                   Grid.Row="6"
+                                   Style="{DynamicResource listTextBlock}"/>
+
+                        <TextBlock Text="Квалификация"
+                                   FontWeight="Bold"
+                                   Foreground="White"
+                                   Grid.Row="7"
+                                   Style="{DynamicResource listTextBlock}"/>
+
+                        <TextBlock Text="{Binding IdDoctorCategory.DoctorCategoryName}"
+                                   Grid.Column="2"
+                                   Grid.Row="8"
+                                   Style="{DynamicResource listTextBlock}"/>
+
+                        <TextBlock Text="Кабинет"
+                                   FontWeight="Bold"
+                                   Foreground="White"
+                                   Grid.Row="8"
+                                   Style="{DynamicResource listTextBlock}"/>
+
+                        <TextBlock Text="{Binding IdCab.CabNumber}"
+                                   Grid.Column="2"
+                                   Grid.Row="9"
+                                   Style="{DynamicResource listTextBlock}"/>
+
+                        <TextBlock Text="Статус"
+                                   FontWeight="Bold"
+                                   Foreground="White"
+                                   Grid.Row="9"
+                                   Style="{DynamicResource listTextBlock}"/>
+
+                        <TextBlock Text="{Binding IdDoctorStatus.DoctorStatusName}"
+                                   Grid.Column="2"
+                                   Grid.Row="9"
+                                   Style="{DynamicResource listTextBlock}"/>
+
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
+    </Grid>
+</Page>

@@ -76,6 +76,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ClassFolder\VariableClass.cs" />
     <Compile Include="Datafolder\Address.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -151,6 +152,12 @@
     <Compile Include="Datafolder\WhereIssuedPassport.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="PageFolder\DoctorFolder\DoctorListPage.xaml.cs">
+      <DependentUpon>DoctorListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\DoctorFolder\EditDoctorPage.xaml.cs">
+      <DependentUpon>EditDoctorPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowFolder\AuthorizationWindow.xaml.cs">
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
     </Compile>
@@ -164,6 +171,14 @@
     <Compile Include="ClassFolder\LoadReadImageClass.cs" />
     <Compile Include="ClassFolder\MBClass.cs" />
     <Compile Include="Datafolder\ContextClass.cs" />
+    <Page Include="PageFolder\DoctorFolder\DoctorListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\DoctorFolder\EditDoctorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ResourceFolder\Dictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -212,7 +227,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="PageFolder\" />
+    <Folder Include="PageFolder\PatientFolder\" />
+    <Folder Include="PageFolder\VirusFolder\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Datafolder\DBModel.Context.tt">
@@ -225,6 +241,10 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="ResourceFolder\ImageFolder\Doctor.png" />
+    <Resource Include="ResourceFolder\ImageFolder\exituser.png" />
+    <Resource Include="ResourceFolder\ImageFolder\Patient.png" />
+    <Resource Include="ResourceFolder\ImageFolder\Virus.png" />
     <Resource Include="ResourceFolder\ImageFolder\Group 1348.png" />
     <Resource Include="ResourceFolder\ImageFolder\Group 1349.png" />
     <Resource Include="ResourceFolder\ImageFolder\Group 1350.png" />
