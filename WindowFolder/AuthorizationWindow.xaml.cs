@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using RebrovKorsun.ClassFolder;
+using RebrovKorsun.Datafolder;
 
 namespace RebrovKorsun.WindowFolder
 {
@@ -28,12 +29,15 @@ namespace RebrovKorsun.WindowFolder
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
         }
 
         private void CloseBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
+            MBClass.ExitMB();
         }
 
         private void ExitBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -43,7 +47,59 @@ namespace RebrovKorsun.WindowFolder
 
         private void LogInBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(LoginTB.Text))
+            {
+                MBClass.ErrorMB("Вы не ввели логин");
+                LoginTB.Focus();
+            }
+            else if (string.IsNullOrWhiteSpace(PasswordPB.Password))
+            {
+                MBClass.ErrorMB("Вы не ввели пароль");
+                PasswordPB.Focus();
+            }
+            else
+            {
+                try
+                {
+                    var user = DBEntities.GetContext()
+                        .User
+                        .FirstOrDefault(u => u.Login == LoginTB.Text);
 
+                    if (user == null)
+                    {
+                        MBClass.ErrorMB("Введён не верный логин");
+                        LoginTB.Focus();
+                        return;
+                    }
+                    if (user.Password != PasswordPB.Password)
+                    {
+                        MBClass.ErrorMB("Введён не верный логин");
+                        PasswordPB.Focus();
+                        return;
+                    }
+                    else
+                    {
+                        switch (user.IdRole)
+                        {
+                            case 1:
+                                MBClass.InfoMB("Администратор");
+                                new MainWindow().ShowDialog();
+                                this.Close();
+                                break;
+
+                            //case 2:
+                            //    MBClass.InfoMB("Сотрудник");
+                            //    new .ShowDialog();
+                            //    this.Close();
+                            //    break;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MBClass.ErrorMB(ex);
+                }
+            }
         }
     }
 }

@@ -4,9 +4,107 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RebrovKorsun.WindowFolder"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="{x:Null}"
+        AllowsTransparency="True"
+        ResizeMode="CanResizeWithGrip"
+        Height="750" Width="1200"
+        MaxHeight="750" MaxWidth="1200"
+        MinHeight="750" MinWidth="1200">
+    <Border Style="{DynamicResource MainBorder}"
+            MouseDown="Border_MouseDown">
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Border Style="{DynamicResource TopBorder}" Height="120"/>
+
+            <Image Margin="16,0,0,0"
+                   Height="100"
+                   Width="300"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Source="/ResourceFolder/ImageFolder/image 2.png"/>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <Image x:Name="RollupBtn"               
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Right"
+                               Margin="1100 0 15 0"
+                               Height="35"
+                               MouseLeftButtonDown="RollupBtn_MouseLeftButtonDown"
+                               Source="/ResourceFolder/ImageFolder/Group 1349.png"/>
+
+                <Image x:Name="CloseBtn" 
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Right"
+                               Margin="0 0 0 0"
+                               Height="35"
+                               MouseLeftButtonDown="CloseBtn_MouseLeftButtonDown"
+                               Source="/ResourceFolder/ImageFolder/Group 1350.png"/>
+            </StackPanel>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="225"/>
+
+                    <ColumnDefinition/>
+
+                </Grid.ColumnDefinitions>
+
+                <Grid>
+                    <!--<StackPanel Grid.Row="1" Background="{DynamicResource MainBackGround}">
+
+                        <Button x:Name="ListUserBtn" Width="210"
+                                HorizontalAlignment="Left"
+                                Click="ListUserBtn_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Список пользователей" Style="{DynamicResource ButtonTextBlock}"/>
+
+                                --><!--<Image Source=""/>--><!--
+
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="AddUserBtn" Width="210"
+                                HorizontalAlignment="Left"
+                                Click="AddUserBtn_Click">
+                            <StackPanel Orientation="Horizontal">
+
+                                --><!--<Image Source=""/>--><!--
+                                <TextBlock Text="Добавить пользователя" Style="{DynamicResource ButtonTextBlock}"
+                                           HorizontalAlignment="Left"/>
+
+                            </StackPanel>
+                        </Button>
+
+                    </StackPanel>-->
+
+                    
+
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Style="{DynamicResource HeadingLabel}"
+                           Content="{Binding ElementName=MainFrame,
+                        Path=Content.Title}"/>
+                    <Frame Grid.Row="1" Name="MainFrame" Margin="10"
+                           NavigationUIVisibility="Hidden"/>
+
+                </Grid>
+
+            </Grid>
+        </Grid>
+    </Border>
 </Window>

@@ -23,5 +23,15 @@ namespace RebrovKorsun.WindowFolder
         {
             InitializeComponent();
         }
+
+        private void RollupBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void CloseBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
