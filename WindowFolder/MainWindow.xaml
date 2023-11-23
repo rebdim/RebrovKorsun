@@ -56,22 +56,17 @@
                         MouseLeftButtonDown="TopperBorder_MouseLeftButtonDown_1"/>
 
                 <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Height="50" Width="90" >
-
-
                     <Image x:Name="RollupBtn" Cursor="Hand" Stretch="Uniform"
                                Source="/ResourceFolder/ImageFolder/Group 1349.png"
-                               Margin="15"
-                           Height="20"
+                           Height="30"
                                MouseLeftButtonUp="RollupBtn_MouseLeftButtonUp"/>
-
                     <Image x:Name="ExitBtn" Cursor="Hand" Stretch="Uniform"
                                Source="/ResourceFolder/ImageFolder/Group 1350.png"
-                               Margin="0 0 0 0 "
-                           Height="20"
-                               MouseLeftButtonDown="ExitBtn_MouseLeftButtonDown"/>
+                           Height="30"
+                               MouseLeftButtonDown="ExitBtn_MouseLeftButtonDown" Width="59"/>
                 </StackPanel>
 
- 
+
 
             </Grid>
 
@@ -91,12 +86,14 @@
                             <Style TargetType="Image">
                                 <Setter Property="Source" Value="/ResourceFolder/ImageFolder/Doctor.png"/>
                                 <Style.Triggers>
-                                    
+
                                 </Style.Triggers>
                             </Style>
                         </Image.Style>
                     </Image>
-                    <Image VerticalAlignment="Bottom" Margin="10,15" Height="70"  >
+                    <Image VerticalAlignment="Bottom" Margin="10,15" Height="70" 
+                           
+                           MouseLeftButtonDown="Image_MouseLeftButtonDown_2">
                         <Image.Style>
                             <Style TargetType="Image">
                                 <Setter Property="Source" Value="/ResourceFolder\ImageFolder\patient.png"/>
@@ -106,7 +103,8 @@
                             </Style>
                         </Image.Style>
                     </Image>
-                    <Image VerticalAlignment="Bottom" Margin="10,15" Height="70"  >
+                    <Image VerticalAlignment="Bottom" Margin="10,15" Height="70"  
+                           MouseLeftButtonDown="Image_MouseLeftButtonDown_3">
                         <Image.Style>
                             <Style TargetType="Image">
                                 <Setter Property="Source" Value="\ResourceFolder\ImageFolder\Virus.png"/>

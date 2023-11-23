@@ -12,5 +12,8 @@ namespace RebrovKorsun.ClassFolder
 
         public static int IdDoctor { get; set; }
 
+        public static int IdPatient { get; set; }
+
+        public static int IdDisease { get; set; }
     }
 }

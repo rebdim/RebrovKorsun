@@ -112,7 +112,19 @@ namespace RebrovKorsun.WindowFolder
 
         private void Image_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
         {
-            
+            new AuthorizationWindow().Show();
+
+            Close();
+        }
+
+        private void Image_MouseLeftButtonDown_2(object sender, MouseButtonEventArgs e)
+        {
+            MainFrame.Navigate(new PageFolder.PatientFolder.PatientListPage());
+        }
+
+        private void Image_MouseLeftButtonDown_3(object sender, MouseButtonEventArgs e)
+        {
+            MainFrame.Navigate(new PageFolder.VirusFolder.ListVirusPage());
         }
     }
 }

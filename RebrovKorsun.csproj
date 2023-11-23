@@ -158,6 +158,15 @@
     <Compile Include="PageFolder\DoctorFolder\EditDoctorPage.xaml.cs">
       <DependentUpon>EditDoctorPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageFolder\PatientFolder\EditPatientPage.xaml.cs">
+      <DependentUpon>EditPatientPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\PatientFolder\PatientListPage.xaml.cs">
+      <DependentUpon>PatientListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\VirusFolder\ListVirusPage.xaml.cs">
+      <DependentUpon>ListVirusPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowFolder\AuthorizationWindow.xaml.cs">
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
     </Compile>
@@ -176,6 +185,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageFolder\DoctorFolder\EditDoctorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\PatientFolder\EditPatientPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\PatientFolder\PatientListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\VirusFolder\ListVirusPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -226,10 +247,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PageFolder\PatientFolder\" />
-    <Folder Include="PageFolder\VirusFolder\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Datafolder\DBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
